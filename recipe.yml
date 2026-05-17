@@ -1,5 +1,5 @@
-name: Custom Vanilla Desktop # Replace this name with your image name
-id: custom # Replace this ID with your image ID
+name: Large OS Gaming # Replace this name with your image name
+id: large-os-gaming # Replace this ID with your image ID
 vibversion: 1.0.7
 
 stages:
@@ -22,6 +22,7 @@ stages:
     type: shell
     commands:
     - lpkg --unlock
+    - dpkg --add-architecture i386
     - apt-get update
 
   # Put your custom actions below this comment
@@ -31,6 +32,13 @@ stages:
     sources:
       - packages:
         - vim
+        - gamescope
+        - gamemode
+        - steam-devices
+        - mesa-vulkan-drivers:i386
+        - mesa-vulkan-drivers
+        - libglx-mesa0:i386
+        - steam
 
   - name: example-commands # Sample module demonstrating the Shell module with custom commands
     type: shell
